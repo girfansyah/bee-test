@@ -25,7 +25,7 @@ OUTPUT:
 function jumlahTabungan(listHarga, history) {
   // Write your code here
 
-  let arr = history.split(/[,-.]+/); // refference : https://stackoverflow.com/questions/10346722/how-to-split-a-string-by-white-space-or-comma/10346754#10346754
+  let arr = history.split(/[,-.]+/);
   let fund = {};
   let day;
 
@@ -40,7 +40,6 @@ function jumlahTabungan(listHarga, history) {
     }
   }
   let total = Object.values(fund);
-  // console.log(total);
   fund['TotalTabungan'] = total.reduce((i, j) => i + j);
   return fund;
 }
