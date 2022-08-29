@@ -24,6 +24,25 @@ OUTPUT:
 
 function jumlahTabungan(listHarga, history) {
   // Write your code here
+
+  let arr = history.split(/[,-.]+/); // refference : https://stackoverflow.com/questions/10346722/how-to-split-a-string-by-white-space-or-comma/10346754#10346754
+  let fund = {};
+  let day;
+
+  for (let i = 0; i < arr.length; i++) {
+    let space = arr[i];
+    let food = listHarga.find((makan) => makan.nama === space);
+    if (!food) {
+      day = space;
+      fund[day] = 10000;
+    } else {
+      fund[day] -= food.harga;
+    }
+  }
+  let total = Object.values(fund);
+  // console.log(total);
+  fund['TotalTabungan'] = total.reduce((i, j) => i + j);
+  return fund;
 }
 
 var hargaMakanan = [
