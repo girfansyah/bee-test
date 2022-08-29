@@ -37,6 +37,16 @@
 
 function counter(arr) {
   // Write your code here
+  let result = {};
+  for (let x of arr) {
+    if (result[x]) {
+      result[x] += 1;
+    } else {
+      result[x] = 1;
+    }
+  }
+
+  return result;
 }
 
 console.log(
